@@ -1,0 +1,24 @@
+{
+  "name": "ecomm",
+  "version": "1.0.0",
+  "description": "A simple ecommerse app using vanilla js and node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChesterCabahug/ecomm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChesterCabahug/ecomm/issues"
+  },
+  "homepage": "https://github.com/ChesterCabahug/ecomm#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
