@@ -1,15 +1,20 @@
 const express = require("express")
 const { restart } = require("nodemon")
 const bodyParser = require("body-parser")
+const cookieSession = require("cookie-session")
 const usersRepo = require("./repositories/users")
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(cookieSession({
+    keys: ["lksjlkj32j0s090920wqwq09"]
+}))
 
 
 app.get("/", (req, res) => {
     res.send(`
         <div>
+            Your id is: ${req.session.userId}
             <form method="POST">
                 <input name="email" type=email placeholder="Email" />
                 <input name="password" type=password placeholder="Password" />
@@ -38,7 +43,8 @@ app.post("/", async (req, res) => {
     const user = await usersRepo.create({email, password})
 
     // store the id of that user inside the users' cookie
-    
+    req.session.userId = user.id
+
 
     res.send("Account Created!")
 })
