@@ -5,6 +5,7 @@ const {
 const bodyParser = require("body-parser")
 const cookieSession = require("cookie-session")
 const authRouter = require("./routes/admin/auth")
+const productsRouter = require("./routes/admin/products")
 
 const app = express()
 
@@ -15,8 +16,9 @@ app.use(bodyParser.urlencoded({
 app.use(cookieSession({
     keys: ["lksjlkj32j0s090920wqwq09"]
 }))
-app.use(authRouter)
 
+app.use(authRouter)
+app.use(productsRouter)
 
 
 
