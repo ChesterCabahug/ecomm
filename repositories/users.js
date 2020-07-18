@@ -6,7 +6,7 @@ const scrypt = util.promisify(crypto.scrypt)
 
 class UsersRepository {
     constructor(filename) {
-        if(!filename){
+        if (!filename) {
             throw new Error("Creating a repository requires a filename")
         }
 
@@ -20,7 +20,9 @@ class UsersRepository {
     }
 
     async getAll() {
-        return JSON.parse(await fs.promises.readFile(this.filename, { encoding: "utf8" }))
+        return JSON.parse(await fs.promises.readFile(this.filename, {
+            encoding: "utf8"
+        }))
     }
 
     async create(attrs) {
@@ -59,7 +61,7 @@ class UsersRepository {
     }
 
     async getOne(id) {
-        const records= await this.getAll()
+        const records = await this.getAll()
         return records.find(record => record.id === id)
     }
 
@@ -73,7 +75,7 @@ class UsersRepository {
         const records = await this.getAll()
         const record = records.find(record => record.id === id)
 
-        if(!record) {
+        if (!record) {
             throw new Error(`Record with id ${id} not found`)
         }
 
@@ -86,13 +88,13 @@ class UsersRepository {
         for (let record of records) {
             let found = true
 
-            for(let key in filters) {
-                if(record[key] !== filters[key]) {
+            for (let key in filters) {
+                if (record[key] !== filters[key]) {
                     found = false
                 }
             }
 
-            if(found) {
+            if (found) {
                 return record
             }
         }
