@@ -37,7 +37,7 @@ router.post("/signup", [requireEmail, requirePassword, requirePasswordConfirmati
         req.session.userId = user.id
 
 
-        res.send("Account Created!")
+        res.redirect("admin/products")
     })
 
 router.get("/signout", (req, res) => {
@@ -70,7 +70,7 @@ router.post("/signin", [
 
         req.session.userId = user.id
 
-        res.send("You are sign in!")
+        res.redirect("admin/products")
     })
 
 module.exports = router

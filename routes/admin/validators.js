@@ -45,7 +45,7 @@ module.exports = {
             max: 20
         })
         .withMessage("Must be between 4 and 20 characters")
-        .custom((passwordConfirmation, {
+        .custom(async (passwordConfirmation, {
             req
         }) => {
             if (passwordConfirmation !== req.body.password) {

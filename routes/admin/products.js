@@ -43,7 +43,7 @@ router.post("/admin/products/new", upload.single("image"), [requireTitle, requir
         image
     })
 
-    res.send("submitted!")
+    res.redirect("/admin/products")
 })
 
 module.exports = router
