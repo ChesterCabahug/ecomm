@@ -8,6 +8,7 @@ const {
 const productsRepo = require("../../repositories/products")
 const productsNewTemplate = require("../../views/admin/products/new")
 const productsIndexTemplate = require("../../views/admin/products/index")
+const productsEditTemplate = require("../../views/admin/products/edit")
 const {
     requireTitle,
     requirePrice
@@ -45,6 +46,16 @@ router.post("/admin/products/new", requireAuth, upload.single("image"), [require
     })
 
     res.redirect("/admin/products")
+})
+
+router.get("/admin/products/:id/edit", async(req, res) => {
+    const product = await productsRepo.getOne(req.params.id)
+
+    if(!product) {
+        return res.send("product not found")
+    }
+
+    res.send(productsEditTemplate( { product } ))
 })
 
 module.exports = router
