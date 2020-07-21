@@ -25,9 +25,10 @@ module.exports = ({
               $${item.product.price * item.quantity}
             </div>
             <div class="remove">
-              <form method="POST">
-                <button class="button is-danger">                  
-                  <span class="icon is-small">
+              <form method="POST" action="/cart/products/delete">
+              <button class="button is-danger">                  
+              <span class="icon is-small">
+              <input hidden value="${item.id}" name="itemId" />
                     <i class="fas fa-times"></i>
                   </span>
                 </button>
