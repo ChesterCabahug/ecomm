@@ -62,5 +62,4 @@ module.exports = ({ content }) => {
         </body>
       </html>
     `;
-  };
-  
+};
