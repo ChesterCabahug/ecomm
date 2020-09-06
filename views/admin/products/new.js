@@ -1,12 +1,8 @@
-const layout = require("../layout")
-const {
-    getError
-} = require("../../helpers")
-const { get } = require("../../../routes/admin/auth")
+const layout = require("../layout");
+const { getError } = require("../../helpers");
+const { get } = require("../../../routes/admin/auth");
 
-module.exports = ({
-    errors
-}) => {
+module.exports = ({ errors }) => {
     return layout({
         content: `
             <div class="columns is-centered">
@@ -17,13 +13,19 @@ module.exports = ({
                     <div class="field">
                         <label class="label">Title</label>
                         <input class="input" placeholder="Title" name="title">
-                        <p class="help is-danger">${getError(errors, 'title')}</p>
+                        <p class="help is-danger">${getError(
+                            errors,
+                            "title"
+                        )}</p>
                     </div>
                     
                     <div class="field">
                         <label class="label">Price</label>
                         <input class="input" placeholder="Price" name="price">
-                        <p class="help is-danger">${getError(errors, 'price')}</p>
+                        <p class="help is-danger">${getError(
+                            errors,
+                            "price"
+                        )}</p>
                     </div>
                     
                     <div class="field">
@@ -35,6 +37,6 @@ module.exports = ({
                     </form>
                 </div>
             </div>
-        `
-    })
-}
+        `,
+    });
+};
